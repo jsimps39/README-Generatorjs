@@ -37,22 +37,22 @@ prompt([
     .then(writeToFile);
 
 // TODO: Create a function to write README file
-const generateREADME = (answers) => {
-    return
-    # Title
-    ${ answers.title }
-## Description
-${ answers.description }
-## Installation
-${ answers.Installation }
-## Usage
-${ answers.Usage }
-## Contributors
-${ answers.contributing }
-## Tests
-${ answers.test }
-    ;
-}
+// const generateREADME = (answers) => {
+//     return
+//     # Title
+//     ${ answers.title }
+// ## Description
+// ${ answers.description }
+// ## Installation
+// ${ answers.Installation }
+// ## Usage
+// ${ answers.Usage }
+// ## Contributors
+// ${ answers.contributing }
+// ## Tests
+// ${ answers.test }
+//     ;
+// }
 
 const writeToFile = (md, answers) => {
     try {
