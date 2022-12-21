@@ -1,5 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const fs = require('fs'); 
+
+const prompt = inquirer.createPromptModule();
 // TODO: Create an array of questions for user input
 prompt([
     {
@@ -37,22 +40,22 @@ prompt([
     .then(writeToFile);
 
 // TODO: Create a function to write README file
-// const generateREADME = (answers) => {
-//     return
-//     # Title
-//     ${ answers.title }
-// ## Description
-// ${ answers.description }
-// ## Installation
-// ${ answers.Installation }
-// ## Usage
-// ${ answers.Usage }
-// ## Contributors
-// ${ answers.contributing }
-// ## Tests
-// ${ answers.test }
-//     ;
-// }
+const generateREADME = (answers) => {
+    return `
+    # Title
+    ${answers.title}
+    ## Description
+    ${answers.description}
+    ## Installation
+    ${answers.Installation}
+    ## Usage
+    ${answers.Usage}
+    ## Contributors
+    ${answers.contributing}
+    ## Tests
+    ${answers.test}
+    `;
+};
 
 const writeToFile = (md, answers) => {
     try {
