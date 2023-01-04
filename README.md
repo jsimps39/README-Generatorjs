@@ -1,4 +1,4 @@
-# Title
+# README GENERATOR - James Simpson
 
 ## Description
 

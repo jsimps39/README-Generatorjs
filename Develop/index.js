@@ -2,9 +2,28 @@
 const inquirer = require('inquirer');
 const fs = require('fs'); 
 
-const prompt = inquirer.createPromptModule();
+// TODO: Create a function to write README file took out'answers' and put {title, etc}
+const generateREADME = (answers) => {
+    return ` # ${answers.title}
+    ## Description
+    ${answers.description}
+    ## Installation
+    ${answers.installation}
+    ## Usage
+    ${answers.usage}
+    ## Contributors
+    ${answers.contributing}
+    ## Tests
+    ${answers.tests}
+    `;
+};
+
+//do i need this line below?
+//const prompt = inquirer.createPromptModule();
+
 // TODO: Create an array of questions for user input
-prompt([
+inquirer 
+    .prompt([
     {
         type: 'input',
         message: 'What is your README title?',
@@ -15,7 +34,6 @@ prompt([
         message: 'What was your motivation?',
         name: 'description'
     },
-    //add more description questions?
     {
         type: 'input',
         message: 'How do you install this?',
@@ -36,38 +54,11 @@ prompt([
         message: 'What tests did you run?',
         name: 'tests'
     },
-]).then(generateReadMe)
-    .then(writeToFile);
+])
+.then((answers) => {
+    const mdPageContent = generateREADME(answers);
 
-// TODO: Create a function to write README file
-const generateREADME = (answers) => {
-    return `
-    # Title
-    ${answers.title}
-    ## Description
-    ${answers.description}
-    ## Installation
-    ${answers.Installation}
-    ## Usage
-    ${answers.Usage}
-    ## Contributors
-    ${answers.contributing}
-    ## Tests
-    ${answers.test}
-    `;
-};
-
-const writeToFile = (md, answers) => {
-    try {
-        fs.writeFileSync('README.md', md);
-        console.log("success");
-    } catch (err) {
-        console.log(err)
-    }
-};
-
-// TODO: Create a function to initialize app
-function init() { }
-
-// Function call to initialize app
-init();
+    fs.writeFile('README.md', mdPageContent, (err) =>
+    err ? console.log(err) : console.log('Success')
+        );
+});
