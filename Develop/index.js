@@ -5,17 +5,17 @@ const fs = require('fs');
 // TODO: Create a function to write README file took out'answers' and put {title, etc}
 const generateREADME = (answers) => {
     return ` # ${answers.title}
-    ## Description
-    ${answers.description}
-    ## Installation
-    ${answers.installation}
-    ## Usage
-    ${answers.usage}
-    ## Contributors
-    ${answers.contributing}
-    ## Tests
-    ${answers.tests}
-    `;
+## Description
+${answers.description}
+## Installation
+${answers.installation}
+## Usage
+${answers.usage}
+## Contributors
+${answers.contributing}
+## Tests
+${answers.tests}
+`;
 };
 
 //do i need this line below?
